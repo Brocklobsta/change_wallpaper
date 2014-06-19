@@ -1,7 +1,11 @@
 #!/usr/bin/python
-# store this file somewhere and take note of the path
-# make it executable:
+# Downloads the current "Astronomy Picture of the Day" from nasa.gov and sets as wallpaper
+# 
+# Installation steps:
+# - store this file somewhere and take note of the path
+# - make it executable:
 #   chmod a+x /path/to/change_wallpaper
+# - follow instructions given in the .plist file to make it run daily
 
 FEED_URL = "http://apod.nasa.gov/apod/"
 WALLPAPER_DIR = "/Users/mw/Pictures/Wallpapers/APOD"
