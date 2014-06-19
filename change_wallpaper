@@ -3,6 +3,8 @@
 # 
 # Installation steps:
 # - store this file somewhere and take note of the path
+# - change WALLPAPER_DIR to some folder in your home directory
+#   and create the folder
 # - make it executable:
 #   chmod a+x /path/to/change_wallpaper
 # - follow instructions given in the .plist file to make it run daily
