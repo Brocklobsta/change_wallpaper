@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+FEED_URL = "http://apod.nasa.gov/apod/"
+WALLPAPER_DIR = "/Users/mw/Pictures/Wallpapers/APOD"
+
+import subprocess, re, datetime
+from urllib import urlopen, urlretrieve
+import os.path, os
+
+def main():
+    xml = urlopen(FEED_URL).read()
+
+    m = re.search(r"a href=\"(image/.*?)\"", xml)
+    
+    #m = re.search(r"img src=\"(.*?)\"", xml)
+    first_img = FEED_URL + m.group(1)
+    name = re.sub(r"^.*/", "", first_img)
+    filename = "%s/%s-%s" % (WALLPAPER_DIR, str(datetime.date.today()), name)
+
+    print "Image URL: ", first_img
+    print "Filename: ", name
+    print "Target file: ", filename
+    
+    if os.path.isfile(filename):
+        print "File already exists."
+    else:
+        print "Downloading..."
+        urlretrieve(first_img, filename)
+
+    set_desktop_background(filename)
+
+SCRIPT = """/usr/bin/osascript -s o<<END
+tell application "Finder"
+set desktop picture to POSIX file "%s"
+end tell
+END"""
+
+def set_desktop_background(filename):
+    print "Changing wallpaper..."
+    #subprocess.Popen(SCRIPT%filename, shell=True)
+    subprocess.check_call(SCRIPT%filename, shell=True)
+
+main()
