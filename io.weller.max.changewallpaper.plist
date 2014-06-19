@@ -3,19 +3,20 @@
 http://www.apple.com/DTDs/PropertyList-1.0.dtd >
 <plist version="1.0">
 <dict>
+  
   <key>Label</key>
   <string>io.weller.max.changewallpaper</string>
   
+  <!--
+    store this file in ~/Library/LaunchAgents/
+    edit the path to change_wallpaper below
+  -->
+  
   <key>Program</key>
-  <string>/Users/mw/bin/change_wallpaper</string>
+  <string>/path/to/change_wallpaper</string>
   
   <key>RunAtLoad</key>
   <true/>
-  
-  <key>StandardErrorPath</key>
-  <string>/Users/mw/Temp/Logs/change_wallpaper.log</string>
-  <key>StandardOutPath</key>
-  <string>/Users/mw/Temp/Logs/change_wallpaper.log</string>
   
   <key>StartCalendarInterval</key>
   <dict>  
